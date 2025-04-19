@@ -1,0 +1,123 @@
+// 初始化故事
+document.addEventListener('DOMContentLoaded', () => {
+  // 修改: 首先调用 fetchScene 获取 AI 生成的故事数据
+  fetchScene('start').then(() => {
+    // 加载初始场景
+    loadScene(currentSceneId);
+  }).catch(error => {
+    console.error('初始化失败:', error);
+    document.getElementById('error-message').textContent = `初始化失败: ${error.message}`;
+    document.getElementById('error-container').classList.remove('hidden');
+  });
+});
+
+// 渲染场景
+function renderScene(scene) {
+  // 更新DOM
+  document.querySelector('.scene').style.backgroundImage = `url('${scene.image || '/assets/images/default.jpg'}')`;
+  document.getElementById('story-text').textContent = scene.text || '故事内容加载失败，请稍后再试。';
+
+  // 清空并重建选项按钮
+  const choicesContainer = document.getElementById('choices');
+  choicesContainer.innerHTML = '';
+
+  if (Array.isArray(scene.choices) && choiceCount < maxChoices) {
+    scene.choices.forEach(choice => {
+      const btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = choice.text;
+      btn.onclick = () => {
+        playSound(`assets/sounds/click.mp3`);
+        choiceCount++; // 增加选择计数
+        loadScene(choice.nextId);
+      };
+      choicesContainer.appendChild(btn);
+    });
+  } else {
+    // 如果达到最大选择次数，显示结束提示
+    choicesContainer.innerHTML = '<p>故事已经结束，感谢聆听！</p>';
+  }
+}
+
+// 加载场景
+async function loadScene(sceneId) {
+    showLoading(true);
+
+    // 新增：强制重置故事缓存和计数器当进入初始场景
+    if (sceneId === 'start') {
+        storyData = {}; // 清空故事缓存
+        choiceCount = 0; // 重置选择次数
+    }
+
+    // 如果已经加载过该场景，直接使用缓存数据
+    if (storyData[sceneId]) {
+        renderScene(storyData[sceneId]);
+        showLoading(false);
+        return;
+    }
+
+    // 如果是第一次加载，尝试从story-data.json文件中读取数据
+    if (choiceCount === 0) {
+        try {
+            const response = await fetch('/story-data.json'); // 从本地文件读取数据
+            if (!response.ok) throw new Error('无法读取story-data.json文件');
+
+            const data = await response.json();
+            storyData = data.scenes; // 存储整个故事数据
+
+            // 渲染当前场景，若 sceneId 不存在则回退到 default 场景
+            const currentScene = storyData[sceneId] || storyData.default || {
+                text: '故事数据加载失败，请稍后再试。',
+                choices: [{ text: '重新开始', nextId: 'start' }]
+            };
+            renderScene(currentScene);
+
+        } catch (error) {
+            console.error('加载失败:', error);
+            document.getElementById('error-message').textContent = `加载失败: ${error.message}`;
+            document.getElementById('error-container').classList.remove('hidden');
+        } finally {
+            showLoading(false);
+        }
+    } else {
+        // 如果不是第一次加载，直接渲染缓存数据
+        const currentScene = storyData[sceneId] || storyData.default || {
+            text: '故事数据加载失败，请稍后再试。',
+            choices: [{ text: '重新开始', nextId: 'start' }]
+        };
+        renderScene(currentScene);
+        showLoading(false);
+    }
+}
+
+async function fetchScene(sceneId) {
+    try {
+        const response = await fetch(`/api/scenes`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sceneId })
+        });
+
+        if (!response.ok) {
+            throw new Error('网络响应异常，请稍后重试');
+        }
+
+        const data = await response.json();
+        renderScene(data);
+    } catch (error) {
+        // 新增: 显示错误信息
+        document.getElementById('error-message').textContent = error.message;
+        document.getElementById('error-container').classList.remove('hidden');
+    }
+}
+
+// 显示/隐藏加载状态
+function showLoading(show) {
+  document.getElementById('loading').classList.toggle('hidden', !show);
+}
+
+// 播放音效
+function playSound(soundFile) {
+  const audio = new Audio(soundFile);
+  audio.play().catch(e => console.log("音效播放失败:", e));
+}

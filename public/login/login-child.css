@@ -1,0 +1,17 @@
+body {
+    min-height: 1024px;
+}
+
+.login-bg {
+    background-image: url('https://ai-public.mastergo.com/ai/img_res/ff91b8d929305d46d5dc8b9316c0e355.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.text-shadow {
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* 水平偏移量、垂直偏移量、模糊半径、颜色 */
+}

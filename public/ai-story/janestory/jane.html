@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经典故事</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-[1024px]">
+    <div class="max-w-[1440px] mx-auto">
+        <nav class="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
+            <div class="flex items-center space-x-4">
+                <span class="text-2xl font-['Pacifico'] text-primary">growAI</span>
+                <h1 class="text-xl font-medium">经典故事</h1>
+                <button id="backstory">返回</button>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="relative">
+                    <input type="text" placeholder="搜索故事..."
+                        class="pl-10 pr-4 py-2 w-64 bg-gray-100 rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-primary/20">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+        </nav>
+        <div class="px-8 py-6">
+            <div class="grid grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/3ddd8a48ba46622a9b0623f80929830e.jpg"
+                            class="w-full h-full object-cover object-top" alt="成语故事">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white text-xl font-medium">成语故事</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">守株待兔</h4>
+                            <p class="text-sm text-gray-500 mt-1">讲述一个农夫因为懒惰而守着树桩等待兔子的故事...</p>
+                        </div>
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">画蛇添足</h4>
+                            <p class="text-sm text-gray-500 mt-1">描述过分追求完美反而适得其反的寓意...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/ed6fd231f41bd9c93e63c9662a40e7c0.jpg"
+                            class="w-full h-full object-cover object-top" alt="寓言故事">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white text-xl font-medium">寓言故事</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">龟兔赛跑</h4>
+                            <p class="text-sm text-gray-500 mt-1">告诉我们骄傲自满必将失败的道理...</p>
+                        </div>
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">狐假虎威</h4>
+                            <p class="text-sm text-gray-500 mt-1">讲述狐狸借助老虎威风的有趣故事...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/b9d976980861118f1d05a09496600087.jpg"
+                            class="w-full h-full object-cover object-top" alt="童话故事">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white text-xl font-medium">童话故事</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">小红帽</h4>
+                            <p class="text-sm text-gray-500 mt-1">一个小女孩与大灰狼的冒险故事...</p>
+                        </div>
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">白雪公主</h4>
+                            <p class="text-sm text-gray-500 mt-1">美丽善良的公主与七个小矮人的故事...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-md transition-shadow">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://ai-public.mastergo.com/ai/img_res/b71b6a5c647f8ee399eacce83f024b5f.jpg"
+                            class="w-full h-full object-cover object-top" alt="历史故事">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-4 text-white text-xl font-medium">历史故事</h3>
+                    </div>
+                    <div class="p-4">
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">草船借箭</h4>
+                            <p class="text-sm text-gray-500 mt-1">诸葛亮智取箭矢的精彩故事...</p>
+                        </div>
+                        <div class="story-item mb-3 cursor-pointer hover:bg-gray-50 p-2 rounded-lg">
+                            <h4 class="text-gray-800 font-medium">卧薪尝胆</h4>
+                            <p class="text-sm text-gray-500 mt-1">勾践卧薪尝胆复国的感人故事...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="story-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center">
+            <div class="bg-white w-[800px] rounded-xl p-8 relative">
+                <button class="absolute right-4 top-4 text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-medium">守株待兔</h2>
+                    <button class="flex items-center space-x-2 text-primary">
+                        <i class="fas fa-play"></i>
+                        <span>播放朗读</span>
+                    </button>
+                </div>
+                <div class="prose">
+                    <p>从前，宋国有个农夫，在自己的田里耕作。一天，他在地里干活的时候，突然看见一只兔子从远处跑来，一头撞在田边的树桩上，当场就死了...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.story-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('story-modal').style.display = 'flex';
+            });
+        });
+        document.querySelector('#story-modal button').addEventListener('click', () => {
+            document.getElementById('story-modal').style.display = 'none';
+        });
+        document.getElementById('backstory').addEventListener('click',function(e){
+            e.preventDefault();
+            window.close();
+        })
+    </script>
+</body>
+
+</html>

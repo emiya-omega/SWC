@@ -1,0 +1,45 @@
+body {
+    min-height: 1200px;
+    background-color: #FFF5F5;
+}
+
+.medal {
+    transition: all 0.3s ease;
+}
+
+.medal:hover {
+    transform: scale(1.1);
+}
+
+.medal.active:hover {
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.8));
+}
+
+.medal.inactive {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.modal {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+}

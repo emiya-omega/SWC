@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-[1024px] flex items-center justify-center">
+    <div class="w-[500px] bg-white rounded-xl shadow-lg p-8">
+        <div class="flex flex-col">
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">账号</label>
+                    <div class="w-full px-4 py-2 border border-gray-300 rounded-md" id="username">example@email.com
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">年龄</label>
+                    <div class="w-full px-4 py-2 border border-gray-300 rounded-md" id="age">28</div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">性别</label>
+                    <div class="w-full px-4 py-2 border border-gray-300 rounded-md" id="gender">男</div>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" onclick="window.close()"
+                        class="px-6 py-2 border border-gray-300 rounded-button text-gray-700 hover:bg-gray-50 transition-colors">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            // 模拟从后端获取数据
+            fetch('/api/user/info')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('username').textContent = data.username;
+                    document.getElementById('age').textContent = data.age;
+                    document.getElementById('gender').textContent = data.gender === 'male' ? '男' : '女';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

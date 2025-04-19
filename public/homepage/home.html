@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 伴学成长</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#4ECDC4'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '2px',
+                        DEFAULT: '4px',
+                        'md': '8px',
+                        'lg': '12px',
+                        'xl': '16px',
+                        '2xl': '20px',
+                        '3xl': '24px',
+                        'full': '9999px',
+                        'button': '4px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div class="flex w-[1440px] mx-auto min-h-screen">
+        <nav class="w-[280px] bg-white shadow-lg p-6 flex flex-col">
+            <div class="flex items-center text-3xl font-['Pacifico'] text-primary mb-12">
+                <i class="fas fa-book-reader mr-2 text-2xl"></i>
+                <span>GrowAI</span>
+                <i class="fas fa-star text-2xl text-secondary ml-2"></i>
+            </div>
+            <div class="flex-1 space-y-4">
+                <button 
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-home text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">首页</span>
+                </button>
+                <button onclick="navigateToStoryIsland()" 
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-moon text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">晚安故事岛</span>
+                </button>
+                <button onclick="navigateToAnimationHouse()"
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-tv text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">智慧动画屋</span>
+                </button>
+                <button onclick="navigateToAIChat()"
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-robot text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">AI 对话精灵</span>
+                </button>
+                <button onclick="navigateToTaskCards()"
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-tasks text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">亲子任务卡</span>
+                </button>
+                <button onclick="navigateToAchievementGarden()"
+                    class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                    <i class="fas fa-seedling text-primary w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3">成就花园</span>
+                </button>
+            </div>
+        </nav>
+
+        
+        <main class="flex-1 p-8">
+            <div class="flex justify-end items-center mb-8 space-x-4">
+                <button onclick="showUserProfile()"
+                    class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-button">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/335b2f3970e7e9cb41479a45c1914793.jpg"
+                        class="w-8 h-8 rounded-full object-cover" alt="用户头像">
+                    <span>小明的妈妈</span>
+                </button>
+                <button onclick="handleLogout()"
+                    class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-button whitespace-nowrap">
+                    <i class="fas fa-sign-out-alt mr-2"></i>退出登录
+                </button>
+            </div>
+            <div class="relative h-[500px] mb-12 rounded-lg overflow-hidden">
+                <img src="https://ai-public.mastergo.com/ai/img_res/40c1f4b0564d3f9d230cc052b8ae840e.jpg"
+                    class="absolute inset-0 w-full h-full object-cover" alt="Hero Background">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent">
+                    <div class="p-12 max-w-[600px]">
+                        <h1 class="hero-text text-6xl font-bold mb-6">听故事 玩中学 AI 伴成长</h1>
+                        <p class="text-gray-600 text-xl leading-relaxed">
+                            让科技为教育赋能，让学习充满乐趣。我们致力于为孩子打造一个充满想象力和创造力的学习环境，让每个孩子都能在快乐中成长。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold mb-6">今日精选故事</h2>
+            <div class="grid grid-cols-3 gap-6 mb-12">
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(1)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/7725716c9252585385bae8e18ca91ad9.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">月亮兔子的梦想之旅</h3>
+                        <p class="text-gray-600 mb-4">一个关于追逐梦想的温暖故事，让孩子学会勇气和坚持</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>更新时间：2024-01-20</span>
+                            <span>适合年龄：4-6 岁</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(2)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/d6c1a98e3ec41340e7754db85ecb8b35.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">数学王国大冒险</h3>
+                        <p class="text-gray-600 mb-4">和机器人老师一起探索神奇的数学世界</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>更新时间：2024-01-19</span>
+                            <span>适合年龄：5-7 岁</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(3)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/0faffd55ddb2cc023761b7a283a6e8ec.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">森林小学堂</h3>
+                        <p class="text-gray-600 mb-4">和小动物们一起学习自然知识的奇妙故事</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>更新时间：2024-01-18</span>
+                            <span>适合年龄：3-5 岁</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold mb-6">热门推荐</h2>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(4)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/d72a92fc9abaf1d88765a2f1694e48c4.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">恐龙老师教英语</h3>
+                        <p class="text-gray-600 mb-4">和可爱的恐龙老师一起快乐学习英语字母</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>播放次数：2,345</span>
+                            <span>适合年龄：4-6 岁</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(5)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/78c0d1bc8383245590a06c2fce2da5ae.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">音乐精灵的舞会</h3>
+                        <p class="text-gray-600 mb-4">跟随音符探索神奇的音乐世界</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>播放次数：1,892</span>
+                            <span>适合年龄：3-7 岁</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer"
+                    onclick="showStoryDetail(6)">
+                    <img src="https://ai-public.mastergo.com/ai/img_res/1251e3ecf1871b394abb107e33a93d30.jpg"
+                        class="w-full h-[280px] object-cover" alt="故事插图">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">太空探险记</h3>
+                        <p class="text-gray-600 mb-4">和小宇航员一起探索浩瀚的宇宙奥秘</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>播放次数：1,567</span>
+                            <span>适合年龄：5-8 岁</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="home.js"></script>
+</body>
+
+</html>

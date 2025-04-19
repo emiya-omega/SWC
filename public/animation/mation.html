@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧动画屋 - GrowAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="mation.css">
+    <script>
+        tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                primary: '#FF3333',
+                secondary: '#FF7AC3',
+            },
+            borderRadius: {
+                'none': '0px',
+                'sm': '2px',
+                DEFAULT: '4px',
+                'md': '8px',
+                'lg': '12px',
+                'xl': '16px',
+                '2xl': '20px',
+                '3xl': '24px',
+                'full': '9999px',
+                'button': '4px'
+            }
+        }
+    }
+}
+    </script>
+</head>
+
+<body class="flex w-[1440px] mx-auto min-h-screen">
+    <!-- 左侧导航栏 -->
+    <nav class="w-[280px] bg-white shadow-lg p-6 flex flex-col">
+        <div class="flex items-center text-3xl font-['Pacifico'] text-primary mb-12">
+            <i class="fas fa-book-reader mr-2 text-2xl"></i>
+            <span>GrowAI</span>
+            <i class="fas fa-star text-2xl text-secondary ml-2"></i>
+        </div>
+        <div class="flex-1 space-y-4">
+            <button onclick="navigateTohome()"
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-home text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">首页</span>
+            </button>
+            <button onclick="navigateToStoryIsland()" 
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-moon text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">晚安故事岛</span>
+            </button>
+            <button onclick="navigateToAnimationHouse()"
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-tv text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">智慧动画屋</span>
+            </button>
+            <button onclick="navigateToAIChat()"
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-robot text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">AI 对话精灵</span>
+            </button>
+            <button onclick="navigateToTaskCards()"
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-tasks text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">亲子任务卡</span>
+            </button>
+            <button onclick="navigateToAchievementGarden()"
+                class="nav-item w-full flex items-center p-4 text-gray-700 hover:bg-primary/10 rounded-button text-lg">
+                <i class="fas fa-seedling text-primary w-8 h-8 flex items-center justify-center"></i>
+                <span class="ml-3">成就花园</span>
+            </button>
+        </div>
+    </nav>
+    <!-- 主内容区 -->
+    <div class="flex-1 p-8">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">智慧动画屋</h1>
+            <!-- 少儿动画区块 -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">少儿动画</h2>
+                    <button class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap">
+                        查看更多 <i class="fas fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 视频卡片1 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/bcc153a5cf1adb6c6998d63d60164c2c.jpg"
+                                alt="快乐动物乐园" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">快乐动物乐园</h3>
+                            <p class="text-sm text-gray-500 mb-2">跟随小动物们一起探索大自然的奥秘</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 12分钟</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">启蒙教育</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片2 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/e40772cb9520fb992b33c0aaf9d80811.jpg"
+                                alt="小火车历险记" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">小火车历险记</h3>
+                            <p class="text-sm text-gray-500 mb-2">勇敢的小火车带你环游奇妙世界</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 15分钟</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">冒险故事</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片3 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/71cd4fa73010178cb1a37516f3717aa7.jpg"
+                                alt="快乐幼儿园" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">快乐幼儿园</h3>
+                            <p class="text-sm text-gray-500 mb-2">学习分享与友谊的温暖故事</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 10分钟</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">社交启蒙</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 童趣工坊区块 -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">童趣工坊</h2>
+                    <button class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap">
+                        查看更多 <i class="fas fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 视频卡片1 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/77251da2edff67e16bcf6f1e8ee16045.jpg"
+                                alt="创意手工课" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">创意手工课</h3>
+                            <p class="text-sm text-gray-500 mb-2">用简单材料制作可爱小动物</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 8分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded mr-2">动手能力</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded">创造力</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片2 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/31aa79cb7bfe4b1dbdcc2d267e466f36.jpg"
+                                alt="小小艺术家" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">小小艺术家</h3>
+                            <p class="text-sm text-gray-500 mb-2">学习基础色彩搭配与绘画技巧</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 12分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded mr-2">艺术启蒙</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded">色彩认知</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片3 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/d095ea3b8ae974a1ab7e5009e063fd72.jpg"
+                                alt="积木工程师" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">积木工程师</h3>
+                            <p class="text-sm text-gray-500 mb-2">用积木搭建奇妙世界</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 10分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded mr-2">空间思维</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-secondary bg-opacity-10 text-secondary rounded">逻辑能力</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 知识小达人区块 -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-800">知识小达人</h2>
+                    <button class="bg-primary text-white px-4 py-2 rounded-button whitespace-nowrap">
+                        查看更多 <i class="fas fa-chevron-right ml-1"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 视频卡片1 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/2f9ba053ba52e68c0c7a706008b5d00b.jpg"
+                                alt="奇妙太空之旅" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">奇妙太空之旅</h3>
+                            <p class="text-sm text-gray-500 mb-2">认识太阳系和八大行星</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 15分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded mr-2">天文知识</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">科学启蒙</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片2 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/ff371364945ec75b0681e31bf0b23c68.jpg"
+                                alt="丛林探险家" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">丛林探险家</h3>
+                            <p class="text-sm text-gray-500 mb-2">认识热带雨林中的奇妙生物</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 12分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded mr-2">自然知识</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">生物多样性</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 视频卡片3 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="relative video-thumbnail">
+                            <img src="https://ai-public.mastergo.com/ai/img_res/58ab2e9afe61597d855497b9c8557d17.jpg"
+                                alt="数字小天才" class="w-full h-48 object-cover">
+                            <div
+                                class="play-icon absolute inset-0 flex items-center justify-center opacity-0 transition-all">
+                                <div
+                                    class="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-primary text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-medium text-gray-800 mb-1">数字小天才</h3>
+                            <p class="text-sm text-gray-500 mb-2">趣味数学启蒙课</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-400"><i class="fas fa-clock mr-1"></i> 10分钟</span>
+                                <div>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded mr-2">数学启蒙</span>
+                                    <span
+                                        class="text-xs px-2 py-1 bg-primary bg-opacity-10 text-primary rounded">逻辑思维</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 视频播放模态框 -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="relative w-4/5 max-w-4xl">
+            <button id="closeModal" class="absolute -top-10 right-0 text-white text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="bg-black aspect-video">
+                <video id="modalVideo" controls class="w-full h-full">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="bg-white p-4">
+                <h3 id="videoTitle" class="text-xl font-medium mb-2"></h3>
+                <p id="videoDesc" class="text-gray-600 mb-2"></p>
+                <div class="flex items-center text-sm text-gray-500">
+                    <span id="videoDuration" class="mr-4"></span>
+                    <span id="videoTags"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+   <script src="mation.js"></script>
+</body>
+
+</html>

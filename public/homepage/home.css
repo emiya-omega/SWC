@@ -1,0 +1,35 @@
+body {
+    min-height: 1200px;
+    background-color: #FFF5F5;
+}
+
+.nav-item:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.hero-text {
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

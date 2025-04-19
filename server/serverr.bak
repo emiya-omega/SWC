@@ -1,0 +1,256 @@
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path');
+const storyData = require('./story-data.json');
+const axios = require('axios'); // 新增: 引入axios库
+const fs = require('node:fs');
+const app = express();
+const PORT = 3000;
+
+// 中间件
+app.use(cors());
+app.use(bodyParser.json());
+
+// 静态文件托管（前端）
+app.use(express.static(path.join(__dirname, '../public/ai-story/frontend')));
+
+// API路由
+app.post('/api/scenes', async (req, res) => {
+    try {
+        const { sceneId } = req.body;
+
+        // 新增: 构造通义千问API的请求配置
+        const apiKey = 'sk-8a63bd3075ff41eaae33632a25759760';
+        const apiUrl = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation';
+        const prompt = `
+你是一位充满创意和智慧的童话故事讲述者，正在为一个学前教育平台上的“晚安故事岛”功能生成互动式童话故事。请根据以下规则生成一个简短的童话故事，并提供分支选项供用户选择。
+
+规则：
+故事主题：以温馨、有趣、教育意义为核心，适合3-6岁儿童。
+故事长度：每段叙述不超过80字，确保内容简洁易懂。
+分支设计：每次提供2-3个选项，让用户选择接下来的故事发展。
+分支次数：总共允许用户选择4次分支（包括最终结局）。
+结局多样性：每个分支路径都有独特的结局，鼓励积极价值观（如勇敢、善良、合作等）。
+语气风格：语言活泼生动，使用简单词汇和拟人化手法吸引孩子注意力。
+示例结构：
+初始故事：
+在一个遥远的森林里，小兔子莉莉发现了一扇神秘的门。“这扇门后面会是什么呢？”莉莉好奇地想。
+
+请选择：
+A. 莉莉推开门，走进去一探究竟。
+
+B. 莉莉叫上她的好朋友小熊一起去看看。
+
+用户选择后的延续：
+（根据用户选择继续展开情节，逐步引入新的场景和决策点，直到第四次分支后呈现结局。）
+返回样例json：
+{
+    "scenes": {
+        "start": {
+            "text": "在一个阳光明媚的早晨，小兔布丁在花园里发现了一只受伤的小鸟。小鸟看起来很虚弱，布丁决定帮助它。",
+            "choices": [
+                { "text": "把小鸟带回窝里照顾", "nextId": "take-bird-home" },
+                { "text": "去找森林医生帮忙", "nextId": "find-doctor" }
+            ]
+        },
+        "take-bird-home": {
+            "text": "布丁小心翼翼地将小鸟带回家，给它准备了温暖的毯子和水。",
+            "choices": [
+                { "text": "每天细心喂食", "nextId": "care-daily" },
+                { "text": "邀请其他小伙伴一起来帮忙", "nextId": "invite-friends" }
+            ]
+        },
+        "care-daily": {
+            "text": "经过几天的努力，小鸟恢复了体力，能够飞翔了。",
+            "choices": [
+                { "text": "送小鸟回到天空", "nextId": "send-back-to-sky" },
+                { "text": "和小鸟成为好朋友", "nextId": "become-friend" }
+            ]
+        },
+        "send-back-to-sky": {
+            "text": "小鸟感激地向布丁告别，飞向了蓝天。",
+            "choices": []
+        },
+        "become-friend": {
+            "text": "小鸟留在布丁身边，成了最好的伙伴，它们一起探索花园的每一个角落。",
+            "choices": []
+        },
+        "find-doctor": {
+            "text": "布丁找到了森林医生猫头鹰博士，博士用草药治好了小鸟。",
+            "choices": [
+                { "text": "送小鸟回巢", "nextId": "send-back-nest" },
+                { "text": "和小鸟约定下次见面", "nextId": "make-appointment" }
+            ]
+        },
+        "send-back-nest": {
+            "text": "小鸟回到了自己的家，每天都来看望布丁。",
+            "choices": []
+        },
+        "make-appointment": {
+            "text": "小鸟和布丁约好下次再见，然后高高兴兴地飞走了。",
+            "choices": []
+        },
+        "invite-friends": {
+            "text": "小伙伴们一起照顾小鸟，大家成为了好朋友。",
+            "choices": [
+                { "text": "一起保护花园里的小鸟", "nextId": "protect-birds" },
+                { "text": "举办一场欢迎派对", "nextId": "welcome-party" }
+            ]
+        },
+        "protect-birds": {
+            "text": "布丁和朋友们制作了警示牌，提醒大家不要伤害小鸟。",
+            "choices": []
+        },
+        "welcome-party": {
+            "text": "小鸟参加了派对，大家都玩得非常开心。",
+            "choices": []
+        },
+        "default": {
+            "text": "故事还在创作中，请期待后续发展...",
+            "choices": [
+                { "text": "重新开始", "nextId": "start" }
+            ]
+        }
+    }
+}
+      当前场景ID: ${sceneId || 'start'}
+    `;
+
+        // 新增: 调用通义千问API
+        const response = await axios.post(apiUrl, {
+            model: 'qwen-turbo',
+            input: { prompt },
+            parameters: {}
+        }, {
+            headers: { Authorization: `Bearer ${apiKey}` }
+        });
+
+        // 新增: 打印API返回的原始数据到控制台，用于调试
+        console.log('API原始返回数据:', response.data);
+
+        // 新增: 解析API返回的数据
+        const apiData = response.data;
+
+        // 新增: 校验并创建目标目录
+        const targetDir = path.join(__dirname, '../public/ai-story/frontend');
+        if (!fs.existsSync(targetDir)) {
+            fs.mkdirSync(targetDir, { recursive: true });
+        }
+
+        // 新增: 使用绝对路径写入文件
+        try {
+            const content = JSON.stringify(sceneData, null, 2);
+            await fs.promises.writeFile(
+                path.join(targetDir, 'story-data.json'), // 修改为绝对路径
+                content
+            );
+        } catch (writeError) {
+            console.error('文件写入失败:', writeError);
+            res.status(500).json({
+                error: '服务器内部错误',
+                message: '无法保存故事数据文件'
+            });
+            return;
+        }
+
+        // 校验返回数据是否包含 output 和 text 字段
+        if (!apiData.output || !apiData.output.text) {
+            console.error('API返回数据格式错误:', apiData);
+            res.status(500).json({
+                error: '服务器内部错误',
+                message: 'API返回数据格式不正确'
+            });
+            return;
+        }
+
+        // 尝试将故事内容转换为JSON格式
+        try {
+            // 新增: 去除可能存在的非法字符（如模板字符串符号、未闭合的引号等）
+            const sanitizedText = apiData.output.text
+                .replace(/```json|```/g, '') // 移除代码块标记
+                .replace(/[\u0000-\u001F\u007F-\u009F]/g, '') // 移除控制字符
+                .replace(/\\n/g, ' ') // 替换换行符为空格
+                .trim();
+
+            // 新增: 在解析前打印最终字符串内容
+            console.log('最终待解析的JSON字符串:', sanitizedText);
+
+            // 使用try/catch包裹解析过程
+            let sceneData;
+            try {
+                sceneData = JSON.parse(sanitizedText);
+            } catch (parseError) {
+                console.error('JSON解析失败:', parseError.message);
+                res.status(500).json({
+                    error: '服务器内部错误',
+                    message: '无法解析API返回的JSON数据'
+                });
+                return;
+            }
+
+            // 新增: 校验sceneData结构完整性
+            if (!sceneData.scenes || typeof sceneData.scenes !== 'object') {
+                console.error('API返回数据结构错误:', sceneData);
+                res.status(500).json({
+                    error: '服务器内部错误',
+                    message: 'API返回数据结构不完整'
+                });
+                return;
+            }
+
+            // 新增: 在写入文件前再次验证数据
+            try {
+                const parsedSceneData = JSON.parse(sanitizedText); // 新增: 定义解析后的数据
+                const content = JSON.stringify(parsedSceneData, null, 2); // 修改: 使用 parsedSceneData
+                await fs.promises.writeFile(
+                    path.join(targetDir, 'story-data.json'),
+                    content
+                );
+            } catch (writeError) {
+                console.error('文件写入失败:', writeError);
+                res.status(500).json({
+                    error: '服务器内部错误',
+                    message: '无法保存故事数据文件'
+                });
+                return;
+            }
+
+            // 返回场景数据
+            const sceneId = req.body.sceneId || 'start';
+            const scene = sceneData.scenes[sceneId] || sceneData.scenes.default;
+
+            res.json({
+                ...scene,
+                image: scene.image ? `/assets/images/${scene.image}` : '/assets/images/default.jpg'
+            });
+
+        } catch (parseError) {
+            console.error('JSON解析失败:', parseError.message);
+            res.status(500).json({
+                error: '服务器内部错误',
+                message: '无法解析API返回的JSON数据'
+            });
+            return;
+        }
+
+    } catch (error) {
+        console.error('API调用失败:', error.message);
+        res.status(500).json({
+            error: '服务器内部错误',
+            message: error.message
+        }); 
+    }
+});
+app.get('/', (req, res) => {
+    res.redirect('/nowstory.html');
+    //login-st-ad
+});
+// 启动服务器
+app.listen(PORT, () => {
+    console.log(`
+  🚀 服务器已启动！
+  👉 前端访问: http://localhost:3000
+  👉 API地址: http://localhost:3000/api/scenes
+  `);
+});

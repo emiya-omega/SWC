@@ -1,0 +1,128 @@
+{
+  "scenes": {
+    "start": {
+      "text": "在一个宁静的夜晚，小狐狸豆豆在森林里散步时，发现了一片闪闪发光的蘑菇圈。‘这里一定藏着什么秘密！’豆豆好奇地想。",
+      "choices": [
+        {
+          "text": "小心翼翼地靠近蘑菇圈",
+          "nextId": "approach-mushroom"
+        },
+        {
+          "text": "喊来好朋友小鹿一起来探险",
+          "nextId": "call-deer"
+        }
+      ]
+    },
+    "approach-mushroom": {
+      "text": "豆豆轻轻走近蘑菇圈，突然听到一阵轻柔的声音：‘欢迎来到魔法世界！’",
+      "choices": [
+        {
+          "text": "鼓起勇气踏进蘑菇圈",
+          "nextId": "enter-circle"
+        },
+        {
+          "text": "决定回去找其他动物帮忙",
+          "nextId": "go-back"
+        }
+      ]
+    },
+    "enter-circle": {
+      "text": "豆豆发现自己进入了一个五彩斑斓的世界，遇见了一只会说话的蝴蝶。",
+      "choices": [
+        {
+          "text": "和蝴蝶交朋友",
+          "nextId": "befriend-butterfly"
+        },
+        {
+          "text": "四处寻找出口",
+          "nextId": "find-exit"
+        }
+      ]
+    },
+    "befriend-butterfly": {
+      "text": "蝴蝶告诉豆豆，这片土地正面临干旱，需要一颗爱心来唤醒泉水。",
+      "choices": [
+        {
+          "text": "用自己的水壶浇灌干涸的土地",
+          "nextId": "water-land"
+        },
+        {
+          "text": "请求蝴蝶教自己魔法",
+          "nextId": "learn-magic"
+        }
+      ]
+    },
+    "water-land": {
+      "text": "豆豆用尽全力浇灌土地，奇迹发生了！泉水从地下涌出，整个森林重新焕发生机。",
+      "choices": []
+    },
+    "find-exit": {
+      "text": "豆豆四处乱跑，却越走越远，迷失了方向。",
+      "choices": [
+        {
+          "text": "停下来冷静思考",
+          "nextId": "think-calmly"
+        },
+        {
+          "text": "大声呼救",
+          "nextId": "call-for-help"
+        }
+      ]
+    },
+    "think-calmly": {
+      "text": "豆豆想起妈妈教过的辨别方向的方法，终于找到了回家的路。",
+      "choices": []
+    },
+    "call-for-help": {
+      "text": "豆豆的呼救声引来了小鹿和其他动物，大家一起帮助豆豆回到了家。",
+      "choices": []
+    },
+    "call-deer": {
+      "text": "豆豆和小鹿一起靠近蘑菇圈，发现里面藏着一本古老的魔法书。",
+      "choices": [
+        {
+          "text": "翻开魔法书看看内容",
+          "nextId": "open-book"
+        },
+        {
+          "text": "把书带回森林让大家研究",
+          "nextId": "take-book-home"
+        }
+      ]
+    },
+    "open-book": {
+      "text": "魔法书突然亮起了光芒，出现了一位友善的精灵。",
+      "choices": [
+        {
+          "text": "询问精灵如何保护森林",
+          "nextId": "ask-elf"
+        },
+        {
+          "text": "礼貌地告别精灵",
+          "nextId": "say-goodbye"
+        }
+      ]
+    },
+    "ask-elf": {
+      "text": "精灵教会了豆豆和小鹿一些简单的魔法，帮助它们守护森林。",
+      "choices": []
+    },
+    "say-goodbye": {
+      "text": "精灵微笑着消失在光芒中，但豆豆和小鹿决心用自己的努力保护森林。",
+      "choices": []
+    },
+    "take-book-home": {
+      "text": "回到森林后，豆豆和小鹿召集大家共同学习魔法书中的知识。",
+      "choices": []
+    },
+    "default": {
+      "text": "故事还在创作中，请期待后续发展...",
+      "choices": [
+        {
+          "text": "重新开始",
+          "nextId": "start"
+        }
+      ]
+    }
+  }
+}

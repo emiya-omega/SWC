@@ -1,0 +1,12 @@
+body {
+    min-height: 1024px;
+    }
+    .hero-bg {
+    background-image: url('https://ai-public.mastergo.com/ai/img_res/015837dd9789a3b0746e117e3e99cfa2.jpg');
+    background-size: cover;
+    background-position: center;
+    }
+
+    .text-shadow {
+        text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* 水平偏移量、垂直偏移量、模糊半径、颜色 */
+    }
