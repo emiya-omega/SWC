@@ -1,118 +1,105 @@
 {
   "scenes": {
     "start": {
-      "text": "在一个宁静的夜晚，小狐狸豆豆在森林里散步时，发现了一片闪闪发光的蘑菇圈。‘这里一定藏着什么秘密！’豆豆好奇地想。",
+      "text": "在一个宁静的夜晚，小狐狸米米在花园里玩耍时，发现了一颗闪闪发光的种子。‘这颗种子会开出什么样的花呢？’米米好奇地想。",
       "choices": [
         {
-          "text": "小心翼翼地靠近蘑菇圈",
-          "nextId": "approach-mushroom"
+          "text": "把它种在花园里",
+          "nextId": "plant-seed"
         },
         {
-          "text": "喊来好朋友小鹿一起来探险",
-          "nextId": "call-deer"
+          "text": "带回家给妈妈看",
+          "nextId": "show-mom"
         }
       ]
     },
-    "approach-mushroom": {
-      "text": "豆豆轻轻走近蘑菇圈，突然听到一阵轻柔的声音：‘欢迎来到魔法世界！’",
+    "plant-seed": {
+      "text": "米米把种子种在花园里，每天细心浇水。几天后，种子发芽了，长成了一株美丽的小花。",
       "choices": [
         {
-          "text": "鼓起勇气踏进蘑菇圈",
-          "nextId": "enter-circle"
+          "text": "继续照顾小花",
+          "nextId": "care-flower"
         },
         {
-          "text": "决定回去找其他动物帮忙",
-          "nextId": "go-back"
+          "text": "邀请朋友们一起来欣赏",
+          "nextId": "invite-friends"
         }
       ]
     },
-    "enter-circle": {
-      "text": "豆豆发现自己进入了一个五彩斑斓的世界，遇见了一只会说话的蝴蝶。",
+    "care-flower": {
+      "text": "小花越长越大，开出了五颜六色的花朵，吸引了许多蝴蝶和蜜蜂来采蜜。",
       "choices": [
         {
-          "text": "和蝴蝶交朋友",
-          "nextId": "befriend-butterfly"
+          "text": "和小花说说话",
+          "nextId": "talk-to-flower"
         },
         {
-          "text": "四处寻找出口",
-          "nextId": "find-exit"
+          "text": "摘下一朵送给妈妈",
+          "nextId": "give-mom"
         }
       ]
     },
-    "befriend-butterfly": {
-      "text": "蝴蝶告诉豆豆，这片土地正面临干旱，需要一颗爱心来唤醒泉水。",
-      "choices": [
-        {
-          "text": "用自己的水壶浇灌干涸的土地",
-          "nextId": "water-land"
-        },
-        {
-          "text": "请求蝴蝶教自己魔法",
-          "nextId": "learn-magic"
-        }
-      ]
-    },
-    "water-land": {
-      "text": "豆豆用尽全力浇灌土地，奇迹发生了！泉水从地下涌出，整个森林重新焕发生机。",
+    "talk-to-flower": {
+      "text": "小花仿佛听到了米米的声音，轻轻摇曳着花瓣回应它。",
       "choices": []
     },
-    "find-exit": {
-      "text": "豆豆四处乱跑，却越走越远，迷失了方向。",
+    "give-mom": {
+      "text": "妈妈看到米米送来的花，开心地抱住了它，夸奖米米是个懂得感恩的好孩子。",
+      "choices": []
+    },
+    "show-mom": {
+      "text": "妈妈告诉米米，这是一颗神奇的友谊种子，如果好好对待它，它会带来意想不到的惊喜。",
       "choices": [
         {
-          "text": "停下来冷静思考",
-          "nextId": "think-calmly"
+          "text": "按照妈妈的话种下种子",
+          "nextId": "plant-seed-mom"
         },
         {
-          "text": "大声呼救",
-          "nextId": "call-for-help"
+          "text": "决定自己试试能不能让它开花",
+          "nextId": "test-seed"
         }
       ]
     },
-    "think-calmly": {
-      "text": "豆豆想起妈妈教过的辨别方向的方法，终于找到了回家的路。",
-      "choices": []
-    },
-    "call-for-help": {
-      "text": "豆豆的呼救声引来了小鹿和其他动物，大家一起帮助豆豆回到了家。",
-      "choices": []
-    },
-    "call-deer": {
-      "text": "豆豆和小鹿一起靠近蘑菇圈，发现里面藏着一本古老的魔法书。",
+    "plant-seed-mom": {
+      "text": "米米按照妈妈的方法种下了种子，果然没过多久就开出了美丽的花朵。",
       "choices": [
         {
-          "text": "翻开魔法书看看内容",
-          "nextId": "open-book"
+          "text": "和花儿一起跳舞",
+          "nextId": "dance-with-flower"
         },
         {
-          "text": "把书带回森林让大家研究",
-          "nextId": "take-book-home"
+          "text": "分享给邻居们",
+          "nextId": "share-neighbors"
         }
       ]
     },
-    "open-book": {
-      "text": "魔法书突然亮起了光芒，出现了一位友善的精灵。",
+    "dance-with-flower": {
+      "text": "花儿随着微风摆动，仿佛在为米米伴舞，整个夜晚充满了欢乐。",
+      "choices": []
+    },
+    "share-neighbors": {
+      "text": "邻居们都收到了米米送的花，大家围在一起聊天，度过了一个愉快的夜晚。",
+      "choices": []
+    },
+    "test-seed": {
+      "text": "米米尝试用自己的方法种下种子，但几天过去了，种子却一点动静都没有。",
       "choices": [
         {
-          "text": "询问精灵如何保护森林",
-          "nextId": "ask-elf"
+          "text": "请教妈妈",
+          "nextId": "ask-mom-advice"
         },
         {
-          "text": "礼貌地告别精灵",
-          "nextId": "say-goodbye"
+          "text": "继续耐心等待",
+          "nextId": "wait-patience"
         }
       ]
     },
-    "ask-elf": {
-      "text": "精灵教会了豆豆和小鹿一些简单的魔法，帮助它们守护森林。",
+    "ask-mom-advice": {
+      "text": "妈妈笑着说：‘有时候我们需要别人的帮助才能做好事情。’米米明白了，又重新跟着妈妈的方法试了一遍。",
       "choices": []
     },
-    "say-goodbye": {
-      "text": "精灵微笑着消失在光芒中，但豆豆和小鹿决心用自己的努力保护森林。",
-      "choices": []
-    },
-    "take-book-home": {
-      "text": "回到森林后，豆豆和小鹿召集大家共同学习魔法书中的知识。",
+    "wait-patience": {
+      "text": "虽然种子迟迟没有发芽，但米米始终相信只要坚持努力，总有一天会有回报。",
       "choices": []
     },
     "default": {
