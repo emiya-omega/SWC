@@ -181,7 +181,7 @@ app.post('/api/scenes', (req, res) => {
   }
 });
 app.get('/', (req, res) => {
-  res.redirect('/homepage/home.html');
+  res.redirect('/login/login-child.html');
   //login-st-ad
 });
 
