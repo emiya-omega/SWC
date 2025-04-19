@@ -144,7 +144,7 @@ app.post('/send-message', async (req, res) => {
     }
 });
 
-app.use(express.static(path.join(__dirname, 'public/ai-story/frontend')));
+app.use(express.static(path.join(__dirname, 'public/')));
 
 // API路由
 app.post('/api/scenes', (req, res) => {
@@ -154,6 +154,7 @@ app.post('/api/scenes', (req, res) => {
     // 确保 storyData 已正确加载
     if (!storyData || !storyData.scenes) {
       throw new Error('故事数据未正确加载');
+      
     }
 
     // 获取指定场景或默认场景
@@ -180,7 +181,7 @@ app.post('/api/scenes', (req, res) => {
   }
 });
 app.get('/', (req, res) => {
-  res.redirect('/nowstory.html');
+  res.redirect('/homepage/home.html');
   //login-st-ad
 });
 

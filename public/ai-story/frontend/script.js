@@ -11,7 +11,7 @@ async function loadScene(sceneId) {
   showLoading(true);
   
   try {
-    const response = await fetch('http://localhost:3000/api/scenes', {
+    const response = await fetch('/api/scenes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ sceneId })
