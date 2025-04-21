@@ -11,6 +11,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         });
         const data = await response.json();
         if (data.success) {
+            // 将 phone 存储到 localStorage
+            localStorage.setItem('userPhone', data.phone); 
             window.location.href = '../homepage/home.html';
         } else {
             alert(data.message || '登录失败');

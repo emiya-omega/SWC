@@ -15,7 +15,7 @@ const axios = require('axios');
 const pool = mariadb.createPool({
     host: 'localhost',
     user: 'root',
-    password: 'SpyZjh2023',
+    password: 'zjh20041008',
     database: 'studywork',
     connectionLimit: 5
 });
@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
 
     const conn = await pool.getConnection();
     try {
-        const user = await conn.query('SELECT * FROM users WHERE phone = ? ', [username]);
+        const user = await conn.query('SELECT * FROM users WHERE phone = ? OR nickname = ?', [username, username]);
         if (user.length === 0) {
             return res.json({ success: false, message: '用户不存在' });
         }
@@ -70,7 +70,8 @@ app.post('/login', async (req, res) => {
             return res.json({ success: false, message: '密码错误' });
         }
 
-        res.json({ success: true, message: '登录成功' });
+        // 返回 phone 字段
+        res.json({ success: true, message: '登录成功', phone: user[0].phone });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: '服务器错误' });
@@ -180,6 +181,28 @@ app.post('/api/scenes', (req, res) => {
     });
   }
 });
+
+// 新增 /userName API 路由
+app.get('/userName', async (req, res) => {
+    // 假设用户已登录，并通过某种方式传递了 phone 参数
+    const phone = req.query.phone || 'default_phone'; // 示例默认值，实际应通过身份验证获取
+
+    const conn = await pool.getConnection();
+    try {
+        const user = await conn.query('SELECT nickname FROM users WHERE phone = ?', [phone]);
+        if (user.length === 0) {
+            return res.json({ success: false, message: '用户不存在' });
+        }
+
+        res.json({ success: true, data: user[0].nickname });
+    } catch (error) {
+        console.error('Error fetching user nickname:', error);
+        res.json({ success: false, message: '服务器错误' });
+    } finally {
+        conn.release();
+    }
+});
+
 app.get('/', (req, res) => {
   res.redirect('/login/login-child.html');
   //login-st-ad

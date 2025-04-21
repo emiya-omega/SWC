@@ -1,88 +1,92 @@
 {
   "scenes": {
     "start": {
-      "text": "在一个晴朗的清晨，小狐狸乐乐在花园里发现了一只受伤的小鸟。小鸟看起来很虚弱，它该怎么办呢？",
+      "text": "在一个晴朗的早晨，小猫咪米米在花园里玩耍时，发现了一朵会说话的小花。‘你好呀，小猫咪！我是魔法花仙子，我可以帮你实现一个愿望。’ 米米兴奋极了。",
       "choices": [
         {
-          "text": "把它带回家照顾",
-          "nextId": "take-home"
+          "text": "我希望学会飞翔",
+          "nextId": "wish-fly"
         },
         {
-          "text": "去找医生帮忙",
-          "nextId": "find-doctor"
+          "text": "我想知道花园的秘密",
+          "nextId": "explore-garden"
         }
       ]
     },
-    "take-home": {
-      "text": "乐乐小心翼翼地把小鸟带回了家，给它做了温暖的小窝。",
+    "wish-fly": {
+      "text": "魔法花仙子挥动花瓣，给米米一对闪亮的翅膀。米米开心地飞向天空，但很快发现自己不会控制方向。",
       "choices": [
         {
-          "text": "每天喂它吃东西",
-          "nextId": "feed-bird"
+          "text": "努力练习飞行技巧",
+          "nextId": "practice-fly"
         },
         {
-          "text": "让它自由飞翔",
-          "nextId": "let-fly"
+          "text": "请求花仙子帮忙降落",
+          "nextId": "ask-for-help"
         }
       ]
     },
-    "feed-bird": {
-      "text": "小鸟渐渐恢复了健康，乐乐教它唱新歌。",
-      "choices": [
-        {
-          "text": "教它唱歌",
-          "nextId": "teach-song"
-        },
-        {
-          "text": "带它去公园玩",
-          "nextId": "go-park"
-        }
-      ]
-    },
-    "teach-song": {
-      "text": "小鸟学会了好听的歌曲，它决定留在乐乐身边陪伴。",
+    "practice-fly": {
+      "text": "经过多次尝试，米米终于学会了平稳飞行，还能帮其他小动物运送物品。",
       "choices": []
     },
-    "let-fly": {
-      "text": "乐乐打开窗户，小鸟拍拍翅膀飞向蓝天。",
+    "ask-for-help": {
+      "text": "花仙子轻轻吹了一口气，米米安全降落在地面。虽然没有翅膀了，但米米明白了团队合作的重要性。",
       "choices": []
     },
-    "find-doctor": {
-      "text": "乐乐找到了动物医生，医生帮小鸟包扎伤口。",
+    "explore-garden": {
+      "text": "魔法花仙子递给米米一根魔法放大镜，说：‘用它看看花园里最不起眼的东西吧。’",
       "choices": [
         {
-          "text": "陪小鸟度过康复期",
-          "nextId": "stay-companion"
+          "text": "用放大镜寻找隐藏的宝藏",
+          "nextId": "find-treasure"
         },
         {
-          "text": "回家等消息",
-          "nextId": "go-home"
+          "text": "跟着花仙子一起去冒险",
+          "nextId": "adventure"
         }
       ]
     },
-    "stay-companion": {
-      "text": "小鸟痊愈后，成为乐乐最好的朋友。",
+    "find-treasure": {
+      "text": "米米用放大镜发现了一颗闪闪发光的种子，种下后竟然长出了一棵结满糖果的树。",
       "choices": []
     },
-    "go-home": {
-      "text": "乐乐回家后收到了医生的消息，小鸟已经康复。",
+    "adventure": {
+      "text": "花仙子带着米米穿过草丛，来到一个神奇的地方，那里有会唱歌的小溪和跳舞的蘑菇。",
       "choices": [
         {
-          "text": "去接小鸟回家",
-          "nextId": "pick-up-bird"
+          "text": "与蘑菇们一起跳舞",
+          "nextId": "dance-with-mushrooms"
         },
         {
-          "text": "继续忙自己的事",
-          "nextId": "busy-self"
+          "text": "沿着小溪探索更远的地方",
+          "nextId": "explore-stream"
         }
       ]
     },
-    "pick-up-bird": {
-      "text": "乐乐和小鸟重逢，它们成了永远的好伙伴。",
+    "dance-with-mushrooms": {
+      "text": "米米学会了蘑菇们的舞蹈，成为了花园里的快乐使者。",
       "choices": []
     },
-    "busy-self": {
-      "text": "乐乐错过了和小鸟的美好时光，但它知道小鸟会理解。",
+    "explore-stream": {
+      "text": "米米顺着小溪游到了一个美丽的湖泊，湖中央漂浮着一座小小的岛屿。",
+      "choices": [
+        {
+          "text": "划船过去探险",
+          "nextId": "boat-explore"
+        },
+        {
+          "text": "在岸边休息，欣赏风景",
+          "nextId": "rest-and-enjoy"
+        }
+      ]
+    },
+    "boat-explore": {
+      "text": "米米在岛上发现了一片果园，里面种满了各种水果。它决定把果实分给森林里的小伙伴们。",
+      "choices": []
+    },
+    "rest-and-enjoy": {
+      "text": "米米躺在柔软的草地上，看着夕阳慢慢落下，感到无比幸福。",
       "choices": []
     },
     "default": {
