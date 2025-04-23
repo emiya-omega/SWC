@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 videoTags.appendChild(span);
             });
             // 设置视频源
-            modalVideo.src = videoData.src;
+            modalVideo.src ='../plane.mp4';
             // 显示模态框
             videoModal.classList.remove('hidden');
             modalVideo.play();

@@ -37,7 +37,7 @@
    <link rel="stylesheet" href="achieve.css">
 </head>
 
-<body>
+<div class="flex w-[1440px] mx-auto min-h-screen">
     <!-- 左侧导航栏 -->
     <div class=" flex w-64  bg-white mx-auto fixed ">
         <nav class="w-[280px] bg-white shadow-lg p-6 flex flex-col">
@@ -89,6 +89,7 @@
             </div>
             <!-- 勋章墙区域 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
                 <!-- 智慧观影时 -->
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="flex items-center mb-4">
@@ -151,34 +152,39 @@
                     </div>
                     <p class="text-gray-500 mb-4">累计聆听童话故事时长</p>
                     <div class="flex justify-between">
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('童话聆听时', '青铜', '累计聆听童话故事 5 小时', '2023-09-28')">
+
+
+                        <div class="medal medal-empty2">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-400 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>-->
                             </div>
                             <p class="text-center mt-2 text-sm font-medium">青铜</p>
                         </div>
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('童话聆听时', '白银', '累计聆听童话故事 15 小时', '2023-11-05')">
+
+
+                        <div class="medal medal-empty2">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-300 to-gray-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>-->
                             </div>
                             <p class="text-center mt-2 text-sm font-medium">白银</p>
                         </div>
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('童话聆听时', '黄金', '累计聆听童话故事 30 小时', '2023-12-18')">
+
+
+                        <div class="medal medal-empty2" >
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
                                 <div class="absolute -inset-1 rounded-full border-4 border-yellow-100 opacity-70"></div>
                             </div>
-                            <p class="text-center mt-2 text-sm font-medium">黄金</p>
+                            <p class="text-center mt-2 text-sm font-medium text-gray-400">黄金</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+                        
+                        <div class="medal medal-empty2">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-blue-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
@@ -186,6 +192,8 @@
                             </div>
                             <p class="text-center mt-2 text-sm font-medium text-gray-400">钻石</p>
                         </div>
+
+
                     </div>
                 </div>
                 <!-- 勤学作业量 -->
@@ -197,24 +205,29 @@
                     </div>
                     <p class="text-gray-500 mb-4">完成学习任务数量</p>
                     <div class="flex justify-between">
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('勤学作业量', '青铜', '完成 10 个学习任务', '2023-10-08')">
+
+
+                        <div class="medal medal-empty3">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-400 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>-->
                             </div>
                             <p class="text-center mt-2 text-sm font-medium">青铜</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+
+                        <div class="medal medal-empty3">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-300 to-gray-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>-->
                             </div>
-                            <p class="text-center mt-2 text-sm font-medium text-gray-400">白银</p>
+                            <p class="text-center mt-2 text-sm font-medium">白银</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+
+                        <div class="medal medal-empty3" >
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
@@ -222,7 +235,9 @@
                             </div>
                             <p class="text-center mt-2 text-sm font-medium text-gray-400">黄金</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+                        
+                        <div class="medal medal-empty3">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-blue-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
@@ -230,6 +245,8 @@
                             </div>
                             <p class="text-center mt-2 text-sm font-medium text-gray-400">钻石</p>
                         </div>
+
+
                     </div>
                 </div>
                 <!-- 智慧交流时 -->
@@ -241,25 +258,29 @@
                     </div>
                     <p class="text-gray-500 mb-4">与 AI 对话精灵互动次数</p>
                     <div class="flex justify-between">
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('智慧交流时', '青铜', '与 AI 对话 20 次', '2023-11-12')">
+
+
+                        <div class="medal medal-empty4">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-400 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-yellow-300 opacity-70"></div>-->
                             </div>
                             <p class="text-center mt-2 text-sm font-medium">青铜</p>
                         </div>
-                        <div class="medal active cursor-pointer"
-                            onclick="showMedalDetail('智慧交流时', '白银', '与 AI 对话 50 次', '2023-12-03')">
+
+
+                        <div class="medal medal-empty4">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-gray-300 to-gray-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
-                                <div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>
+                                <!--<div class="absolute -inset-1 rounded-full border-4 border-gray-100 opacity-70"></div>-->
                             </div>
                             <p class="text-center mt-2 text-sm font-medium">白银</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+
+                        <div class="medal medal-empty4" >
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
@@ -267,7 +288,9 @@
                             </div>
                             <p class="text-center mt-2 text-sm font-medium text-gray-400">黄金</p>
                         </div>
-                        <div class="medal inactive cursor-not-allowed" title="未解锁">
+
+                        
+                        <div class="medal medal-empty4">
                             <div
                                 class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-300 to-blue-200 flex items-center justify-center text-white text-3xl font-bold relative">
                                 <i class="fas fa-medal"></i>
@@ -275,6 +298,9 @@
                             </div>
                             <p class="text-center mt-2 text-sm font-medium text-gray-400">钻石</p>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -284,19 +310,19 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <p class="text-gray-500 text-sm">已获得勋章</p>
-                        <p class="text-2xl font-bold text-primary">7</p>
+                        <p class="text-2xl font-bold text-primary">0</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <p class="text-gray-500 text-sm">总勋章数</p>
-                        <p class="text-2xl font-bold text-gray-700">16</p>
+                        <p class="text-2xl font-bold text-gray-700">0</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <p class="text-gray-500 text-sm">最近获得</p>
-                        <p class="text-xl font-bold text-gray-700">童话聆听时·黄金</p>
+                        <p class="text-xl font-bold text-gray-700">无</p>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <p class="text-gray-500 text-sm">成就进度</p>
-                        <p class="text-xl font-bold text-gray-700">43%</p>
+                        <p class="text-xl font-bold text-gray-700">0%</p>
                     </div>
                 </div>
             </div>
@@ -342,6 +368,7 @@
         </div>
     
     <script src="achieve.js"> </script>
+    <script src="achieve2.js"></script>
 </body>
 
 </html>

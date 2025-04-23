@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',function(e){
+/*document.addEventListener('DOMContentLoaded',function(e){
     e.preventDefault();
     fetch('/api/medal-detail').then((response) => {
         if (!response.ok) {
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',function(e){
         return response.json();
       })
       .then((data)=>{
-        const watchTimes=data.watchTime;
+        const watchTimes = data.find(item => item.watchTime)?.watchTime || 0;
         const medalItems=document.querySelectorAll('.medal-empty');
 
         const medals=[
@@ -70,7 +70,7 @@ function showMedalDetail(title, level, condition, date) {
     medalProgress.style.width = `${randomProgress}%`;
     modal.classList.remove('hidden');
 }
-
+*/
 function hideMedalDetail() {
     const modal = document.getElementById('medalModal');
     modal.classList.add('hidden');

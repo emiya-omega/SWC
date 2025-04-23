@@ -22,8 +22,9 @@ git clone https://github.com/emiya-omega/SWC.git
 ```bash
 #mariadb -u root -p  
 >>source ~/SWC/init.sql
-```
 mysql_secure_installation
+```
+
 在server.js	中修改连接池
 ## 启动服务器：
 ```bash
@@ -31,7 +32,7 @@ cd ~/SWC
 #forever start server.js
 ```
 ## 默认安装
-访问http://localhost:3000，默认跳转至登录页面。
+访问http://localhost:3000
 ## 典型使用流程
 1. 用户注册并登录。
 2. 进入对话页面，与AI互动。

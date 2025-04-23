@@ -1,92 +1,118 @@
 {
   "scenes": {
     "start": {
-      "text": "在一个晴朗的早晨，小猫咪米米在花园里玩耍时，发现了一朵会说话的小花。‘你好呀，小猫咪！我是魔法花仙子，我可以帮你实现一个愿望。’ 米米兴奋极了。",
+      "text": "在一个晴朗的早晨，小狐狸豆豆在花园里发现了一颗闪闪发光的种子。‘这颗种子会不会长出特别的东西呢？’豆豆好奇地想着。",
       "choices": [
         {
-          "text": "我希望学会飞翔",
-          "nextId": "wish-fly"
+          "text": "把种子种进土里",
+          "nextId": "plant-seed"
         },
         {
-          "text": "我想知道花园的秘密",
-          "nextId": "explore-garden"
+          "text": "问妈妈这是什么种子",
+          "nextId": "ask-mom"
         }
       ]
     },
-    "wish-fly": {
-      "text": "魔法花仙子挥动花瓣，给米米一对闪亮的翅膀。米米开心地飞向天空，但很快发现自己不会控制方向。",
+    "plant-seed": {
+      "text": "豆豆小心翼翼地将种子埋进泥土里，每天浇水、唱歌给它听。没几天，种子破土而出，长成了一株美丽的花。",
       "choices": [
         {
-          "text": "努力练习飞行技巧",
-          "nextId": "practice-fly"
+          "text": "继续照顾这朵花",
+          "nextId": "care-for-flower"
         },
         {
-          "text": "请求花仙子帮忙降落",
-          "nextId": "ask-for-help"
+          "text": "去看看别的地方有什么新奇的事物",
+          "nextId": "explore-other-places"
         }
       ]
     },
-    "practice-fly": {
-      "text": "经过多次尝试，米米终于学会了平稳飞行，还能帮其他小动物运送物品。",
-      "choices": []
-    },
-    "ask-for-help": {
-      "text": "花仙子轻轻吹了一口气，米米安全降落在地面。虽然没有翅膀了，但米米明白了团队合作的重要性。",
-      "choices": []
-    },
-    "explore-garden": {
-      "text": "魔法花仙子递给米米一根魔法放大镜，说：‘用它看看花园里最不起眼的东西吧。’",
+    "care-for-flower": {
+      "text": "花朵越长越大，最后竟然变成了一座彩虹桥！豆豆惊喜地发现，桥的另一端通向一个神秘的花园。",
       "choices": [
         {
-          "text": "用放大镜寻找隐藏的宝藏",
-          "nextId": "find-treasure"
+          "text": "大胆走过彩虹桥",
+          "nextId": "cross-rainbow"
         },
         {
-          "text": "跟着花仙子一起去冒险",
-          "nextId": "adventure"
+          "text": "邀请好朋友一起来探险",
+          "nextId": "invite-friend"
         }
       ]
     },
-    "find-treasure": {
-      "text": "米米用放大镜发现了一颗闪闪发光的种子，种下后竟然长出了一棵结满糖果的树。",
+    "cross-rainbow": {
+      "text": "豆豆踏上彩虹桥，发现花园里住着一群快乐的小精灵。他们告诉豆豆，只要心怀善意，就能让世界变得更美好。",
       "choices": []
     },
-    "adventure": {
-      "text": "花仙子带着米米穿过草丛，来到一个神奇的地方，那里有会唱歌的小溪和跳舞的蘑菇。",
+    "invite-friend": {
+      "text": "豆豆和朋友们一起穿过彩虹桥，小精灵们送给他们每人一颗魔法种子作为友谊的纪念。",
+      "choices": []
+    },
+    "ask-mom": {
+      "text": "妈妈说这是一颗神奇的种子，但需要用心才能让它开花结果。",
       "choices": [
         {
-          "text": "与蘑菇们一起跳舞",
-          "nextId": "dance-with-mushrooms"
+          "text": "按照妈妈的话去做",
+          "nextId": "listen-to-mom"
         },
         {
-          "text": "沿着小溪探索更远的地方",
-          "nextId": "explore-stream"
+          "text": "自己试试能不能让它长大",
+          "nextId": "try-it-alone"
         }
       ]
     },
-    "dance-with-mushrooms": {
-      "text": "米米学会了蘑菇们的舞蹈，成为了花园里的快乐使者。",
-      "choices": []
-    },
-    "explore-stream": {
-      "text": "米米顺着小溪游到了一个美丽的湖泊，湖中央漂浮着一座小小的岛屿。",
+    "listen-to-mom": {
+      "text": "豆豆听从妈妈的建议，耐心地照顾种子，不久后它真的开出了一朵美丽的花。",
       "choices": [
         {
-          "text": "划船过去探险",
-          "nextId": "boat-explore"
+          "text": "守护这朵花成长",
+          "nextId": "guard-flower"
         },
         {
-          "text": "在岸边休息，欣赏风景",
-          "nextId": "rest-and-enjoy"
+          "text": "去寻找更多神奇的事情",
+          "nextId": "search-more"
         }
       ]
     },
-    "boat-explore": {
-      "text": "米米在岛上发现了一片果园，里面种满了各种水果。它决定把果实分给森林里的小伙伴们。",
+    "guard-flower": {
+      "text": "这朵花渐渐变成了一个温暖的小房子，里面住着一位善良的小仙子。",
+      "choices": [
+        {
+          "text": "与小仙子成为朋友",
+          "nextId": "befriend-fairy"
+        },
+        {
+          "text": "打开门看看里面是什么",
+          "nextId": "open-door"
+        }
+      ]
+    },
+    "befriend-fairy": {
+      "text": "小仙子教会豆豆如何用爱心帮助别人，从此豆豆成了大家最喜欢的小伙伴。",
       "choices": []
     },
-    "rest-and-enjoy": {
-      "text": "米米躺在柔软的草地上，看着夕阳慢慢落下，感到无比幸福。",
+    "open-door": {
+      "text": "门后是一片五彩斑斓的世界，充满了欢笑和爱。",
+      "choices": []
+    },
+    "try-it-alone": {
+      "text": "豆豆尝试各种方法，但种子始终没有发芽。",
+      "choices": [
+        {
+          "text": "回到妈妈那里请教",
+          "nextId": "return-to-mom"
+        },
+        {
+          "text": "放弃并离开",
+          "nextId": "give-up"
+        }
+      ]
+    },
+    "return-to-mom": {
+      "text": "妈妈温柔地告诉豆豆，有时候需要别人的帮助才能成功。",
+      "choices": []
+    },
+    "give-up": {
+      "text": "虽然有点难过，但豆豆明白失败是学习的一部分。",
       "choices": []
     },
     "default": {
